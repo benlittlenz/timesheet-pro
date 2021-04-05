@@ -19,9 +19,9 @@ class TokenController extends Controller
         if(!Auth::attempt($request->only('email', 'password'))) {
             throw new AuthenticationException();
         }
-        
+
         return [
-            'token' => Auth::user()->createToken('test')->plainTextToken
+            'token' => Auth::user()->createToken($request->deviceId)->plainTextToken
         ];
     }
 }
