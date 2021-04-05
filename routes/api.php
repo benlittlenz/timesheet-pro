@@ -11,7 +11,7 @@ Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request)
 
 Route::post('/auth/token', [TokenController::class, 'store']);
 
-Route::get('/jobs', function () {
+Route::middleware('auth:sanctum')->get('/jobs', function () {
     return Job::all();
 });
 
