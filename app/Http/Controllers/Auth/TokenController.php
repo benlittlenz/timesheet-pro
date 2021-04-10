@@ -22,6 +22,12 @@ class TokenController extends Controller
 
         return [
             'token' => Auth::user()->createToken($request->deviceId)->plainTextToken
+            //'token' => Auth::user()->createToken('test')->plainTextToken
         ];
+    }
+
+    public function destroy(Request $request)
+    {
+        auth()->user()->tokens()->where('name', $request->deviceId)->delete();
     }
 }
