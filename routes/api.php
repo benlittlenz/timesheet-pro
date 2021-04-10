@@ -10,6 +10,7 @@ Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request)
 });
 
 Route::post('/auth/token', [TokenController::class, 'store']);
+Route::delete('/auth/token', [TokenController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->get('/jobs', function () {
     return Job::all();

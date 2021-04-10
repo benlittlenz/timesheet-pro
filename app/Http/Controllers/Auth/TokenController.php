@@ -9,6 +9,11 @@ use Illuminate\Auth\AuthenticationException;
 
 class TokenController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum'])->only('destroy');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
