@@ -21,8 +21,16 @@ class TimesheetFactory extends Factory
      */
     public function definition()
     {
+        $start =  $this->faker->dateTimeThisMonth();
+        $finish =  $this->faker->dateTimeThisMonth();
+
+        //$difference = round(abs(strtotime($finish) - strtotime($start)) / 3600,2);
         return [
-            //
+            'job_id' => 1,
+            'user_id' => 1,
+            'started_at' => $start,
+            'stopped_at' => $finish,
+            'total_hours' => 5,
         ];
     }
 }

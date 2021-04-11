@@ -16,6 +16,10 @@ Route::middleware('auth:sanctum')->get('/jobs', function () {
     return Job::all();
 });
 
+Route::middleware('auth:sanctum')->get('/timesheets', function () {
+    return Timesheet::all();
+});
+
 Route::get('/job/{id}', function ($id) {
     return Job::find($id);
 });
