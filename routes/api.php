@@ -3,6 +3,7 @@
 use App\Models\Job;
 use App\Models\Timesheet;
 use Illuminate\Http\Request;
+use App\Http\Resources\JobResource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimesheetController;
 use App\Http\Controllers\Auth\TokenController;
@@ -15,7 +16,8 @@ Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->get('/jobs', function () {
-    return Job::all();
+    //return Job::all();
+    return JobResource::collection(Job::all());
 });
 
 // Route::middleware('auth:sanctum')->get('/timesheets', function () {
